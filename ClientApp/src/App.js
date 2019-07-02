@@ -1,20 +1,24 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import React, { Component } from 'react'
+import { Route, Switch } from 'react-router'
+import { Layout } from './components/Layout'
+import Home from './pages/Home'
+import Register from './pages/Register'
+import Accounts from './pages/Accounts'
+import Splash from './pages/Splash'
 
 export default class App extends Component {
-  static displayName = App.name;
+  static displayName = App.name
 
-  render () {
+  render() {
     return (
       <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
+        <Switch>
+          <Route path="/" exact component={Splash} />
+          <Route path="/home" exact component={Home} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/register/:id" exact component={Accounts} />
+        </Switch>
       </Layout>
-    );
+    )
   }
 }

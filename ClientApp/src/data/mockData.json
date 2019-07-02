@@ -1,0 +1,89 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1/3:CRS84" }
+  },
+  "features": [
+    {
+      "properties": {
+        "Location_Id": 1,
+        "Name": "Casita Taqueria",
+        "Address": "2663 Central Ave",
+        "Language": "Spanish",
+        "Description": "Casitas has dope food",
+        "FirstName": "Juanita",
+        "LastName": "Vasquez",
+        "WebsiteURL": "https://www.casitatacos.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [27.77118, -82.66978]
+      }
+    },
+    {
+      "properties": {
+        "Location_Id": 2,
+        "Name": "Nueva Cantina",
+        "Address": "1625 4th St S",
+        "Language": "Spanish",
+        "Description": "Their Jalapeno margarita is amazing",
+        "FirstName": "Jose",
+        "LastName": "Jalapeno",
+        "WebsiteURL": "https://www.nuevacantina.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [27.75433, -82.63884]
+      }
+    },
+    {
+      "properties": {
+        "Location_Id": 3,
+        "Name": "Cafe Mozart",
+        "Address": "6754 4th St N",
+        "Language": "German",
+        "Description": "The best pastries in town",
+        "FirstName": "Baker",
+        "LastName": "Hipfl",
+        "WebsiteURL": "http://cafemozartflorida.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [27.83429, -82.63896]
+      }
+    },
+    {
+      "properties": {
+        "Location_Id": 4,
+        "Name": "The Left Bank Bistro",
+        "Address": "1225 Dr M.L.K. Jr St N",
+        "Language": "French",
+        "Description": "A quaint restaurant with a French theme",
+        "FirstName": "Camille",
+        "LastName": "Boucher",
+        "WebsiteURL": "https://www.theleftbankbistro.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [27.78075, -82.63952]
+      }
+    },
+    {
+      "properties": {
+        "Location_Id": 5,
+        "Name": "Saké 23",
+        "Address": "435 5th Ave N",
+        "Language": "Japanese",
+        "Description": "Stylish, contemporary restaurant offering Asian fusion cuisine & sushi, plus craft cocktails",
+        "FirstName": "Eiko",
+        "LastName": "Takahashi",
+        "WebsiteURL": "https://www.sake23.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [27.774239, -82.640448]
+      }
+    }
+  ]
+}
