@@ -1,4 +1,5 @@
 import NavBar from '../components/NavBar'
+import FilterMenu from '../components/FilterMenu'
 import React, { useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import * as mockData from '../data/mockData.json'
@@ -32,6 +33,9 @@ export default function Home() {
         />
         <button>Search</button>
       </form> */}
+      <div className="menuWrapper">
+        <FilterMenu />
+      </div>
       <div className="map">
         <ReactMapGL
           {...viewport}

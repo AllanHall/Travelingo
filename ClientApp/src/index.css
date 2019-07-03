@@ -114,10 +114,152 @@ body::after {
 }
 
 /* Home Page */
+
+/* Hamburger Menu */
+
+.menuWrapper {
+  margin-top: 8.8rem;
+}
+
+.menu-item {
+  color: white;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+  z-index: 0;
+  position: relative;
+}
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  z-index: 0;
+}
+
+.bm-menu {
+  background: #3b3e4d;
+  padding: 0.5em 3em 0;
+  font-size: 1.15em;
+}
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.2em;
+  font-size: 14px;
+}
+
+.bm-item {
+  display: flex !important;
+  outline: none !important;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.grouping-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1vw;
+}
+
+.title-toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-container {
+  display: flex;
+  width: 8vw;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 16.5px;
+  margin: 0;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cdcdcd;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  height: 15px;
+  width: 15px;
+  left: 1px;
+  bottom: 1px;
+  background-color: #ffffff;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4caf50;
+}
+
+input:checked + .slider::before {
+  transform: translateX(28px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+/* Map */
+
 .map {
   display: block;
   margin: 0 auto;
-  margin-top: 10rem;
   border: 3px solid black;
   width: 60vw;
   height: 60vh;
