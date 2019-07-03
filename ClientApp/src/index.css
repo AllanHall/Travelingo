@@ -47,7 +47,7 @@ body::after {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 7;
+  z-index: 1001;
 }
 
 .title {
