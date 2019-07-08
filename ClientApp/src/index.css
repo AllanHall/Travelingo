@@ -261,8 +261,8 @@ input:checked + .slider::before {
   display: block;
   margin: 0 auto;
   border: 3px solid #3b3e4d;
-  width: 60vw;
-  height: 60vh;
+  width: 65vw;
+  height: 65vh;
 }
 
 .markerBtn {
@@ -510,6 +510,12 @@ a:hover {
   }
 }
 
+@media screen and (max-width: 767px) {
+  .container {
+    height: 95vh;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .map {
     height: 50vh;
@@ -518,6 +524,15 @@ a:hover {
   .list {
     margin-right: 2rem;
     margin-left: 2rem;
+  }
+  .content-container {
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .container {
+    height: 100vh;
   }
 }
 
@@ -530,10 +545,6 @@ a:hover {
     border-bottom: 0px;
   }
 
-  .container {
-    height: 140vh;
-  }
-
   .splashLogo {
     width: 18rem;
     height: 5.5rem;
@@ -544,11 +555,20 @@ a:hover {
   .register-div {
     margin-left: 20vw;
   }
+  .container {
+    height: 112vh;
+  }
 }
 
 @media screen and (max-width: 450px) {
   .register-div {
     margin-left: 19vw;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .container {
+    height: 125vh;
   }
 }
 

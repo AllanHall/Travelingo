@@ -13,7 +13,7 @@ export default function Home() {
   const [sites, setSites] = useState([])
   const [viewport, setViewport] = useState({
     latitude: 27.76,
-    longitude: -82.66,
+    longitude: -82.67,
     zoom: 10
   })
 
@@ -43,7 +43,7 @@ export default function Home() {
         >
           {sites.map(site => (
             <Marker
-              key={site.locationName}
+              key={site.id}
               latitude={site.latitude}
               longitude={site.longitude}
             >
@@ -67,12 +67,12 @@ export default function Home() {
               }}
             >
               <div>
-                <a href={`#${selectedSite.locationName}`}>
-                  <h4>
-                    {selectedSite.firstName} {selectedSite.lastName}
-                  </h4>
+                <a href={`/home#${selectedSite.locationName}`}>
+                  <h4>{selectedSite.locationName}</h4>
                 </a>
-                <p>{selectedSite.locationName}</p>
+                <p>
+                  {selectedSite.firstName} {selectedSite.lastName}
+                </p>
               </div>
             </Popup>
           ) : null}
