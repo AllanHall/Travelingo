@@ -35,7 +35,7 @@ namespace travelingo.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult<Site>> PostNewSite([FromBody]Site site)
+    public async Task<ActionResult<Site>> PostNewSite(Site site)
     {
       _context.Sites.Add(site);
       await _context.SaveChangesAsync();

@@ -1,38 +1,32 @@
 import NavBar from '../components/NavBar'
 import FilterMenu from '../components/FilterMenu'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
-import * as mockData from '../data/mockData.json'
 import pin from '../images/pin.png'
+import Axios from 'axios'
 
 const TOKEN =
   'pk.eyJ1IjoiYWxsYW1hbGxhbiIsImEiOiJjang2YTJ5ZDkwYWl6NDNtaHF1bmpvbmVyIn0.5LxH6in5O4Et8agx-t57Rw'
 
 export default function Home() {
   const [selectedSite, setSelectedSite] = useState(null)
+  const [sites, setSites] = useState([])
   const [viewport, setViewport] = useState({
     latitude: 27.76,
     longitude: -82.66,
     zoom: 10
   })
-  // const search = e => {
-  //   e.preventDefault()
-  //   axios.get('/api/sites?searchTerm=' + searchTerm).then(resp => {
-  //     setQuestion(resp.data)
-  //   })
-  // }
+
+  useEffect(() => {
+    Axios.get('/api/sites').then(resp => {
+      console.log({ resp })
+      setSites(resp.data)
+    })
+  }, '')
+
   return (
     <>
       <NavBar />
-      {/* <form onSubmit={search}>
-        <input
-          type="search"
-          placeholder="Search by a language"
-          value={searchTerm}
-          onChange={e => setSearchTerm(e.target.value)}
-        />
-        <button>Search</button>
-      </form> */}
       <div className="menuWrapper">
         <FilterMenu />
       </div>
@@ -47,11 +41,11 @@ export default function Home() {
             setViewport(viewport)
           }}
         >
-          {mockData.features.map(site => (
+          {sites.map(site => (
             <Marker
-              key={site.properties.Location_Id}
-              latitude={site.geometry.coordinates[0]}
-              longitude={site.geometry.coordinates[1]}
+              key={site.id}
+              latitude={site.latitude}
+              longitude={site.longitude}
             >
               <button
                 className="markerBtn"
@@ -66,41 +60,43 @@ export default function Home() {
           ))}
           {selectedSite ? (
             <Popup
-              latitude={selectedSite.geometry.coordinates[0]}
-              longitude={selectedSite.geometry.coordinates[1]}
+              latitude={selectedSite.latitude}
+              longitude={selectedSite.longitude}
               onClose={() => {
                 setSelectedSite(null)
               }}
             >
               <div>
-                <a href={`#${selectedSite.properties.Name}`}>
-                  <h3>{selectedSite.properties.Name}</h3>
+                <a href={`#${selectedSite.locationName}`}>
+                  <h3>
+                    {selectedSite.firstName} {selectedSite.lastName}
+                  </h3>
                 </a>
-                <p>{selectedSite.properties.Description}</p>
+                <p>{selectedSite.description}</p>
               </div>
             </Popup>
           ) : null}
         </ReactMapGL>
       </div>
       <ul className="list">
-        {mockData.features.map(site => {
+        {sites.map(site => {
           return (
             <li>
-              <a className="secondLink" id={site.properties.Name}>
-                <h2>{site.properties.Name}</h2>
+              <a className="secondLink" id={site.id}>
+                <h2>{site.locationName}</h2>
               </a>
               <h2>
-                {site.properties.FirstName} {site.properties.LastName}
+                {site.firstName} {site.lastName}
               </h2>
-              <p>{site.properties.Language}</p>
-              <p>{site.properties.Address}</p>
-              <p>{site.properties.Description}</p>
+              <p>{site.language}</p>
+              <p>{site.address}</p>
+              <p>{site.description}</p>
               <a
-                href={site.properties.WebsiteURL}
+                href={site.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <p>{site.properties.WebsiteURL}</p>
+                <p>{site.websiteUrl}</p>
               </a>
             </li>
           )

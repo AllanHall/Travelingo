@@ -140,7 +140,7 @@ body::after {
 }
 
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: #f18fb5;
 }
 
 .bm-cross-button {
@@ -236,11 +236,11 @@ body::after {
 }
 
 input:checked + .slider {
-  background-color: #4caf50;
+  background-color: #42bbe7;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #4caf50;
+  box-shadow: 0 0 1px #42bbe7;
 }
 
 input:checked + .slider::before {

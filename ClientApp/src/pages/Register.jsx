@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../images/Logo.png'
-// import Axios from 'axios'
+import axios from 'axios'
 
 class Register extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      site: {}
-    }
+  state = {
+    site: {}
   }
 
   updateValue = event => {
@@ -17,10 +14,10 @@ class Register extends Component {
     this.setState(state)
   }
 
-  // submitNewSite = event => {
-  //   event.preventDefault()
-  //   axios.post('/api/sites', this.state.site)
-  // }
+  submitNewSite = event => {
+    event.preventDefault()
+    axios.post('/api/sites', this.state.site)
+  }
 
   render() {
     return (
@@ -39,7 +36,7 @@ class Register extends Component {
           </div>
         </div>
         <div className="register">Register</div>
-        <form className="form">
+        <form className="form" onSubmit={this.submitNewSite}>
           <div className="register-div">
             <input
               className="inputField"
@@ -73,7 +70,11 @@ class Register extends Component {
             />
           </div>
           <div>
-            <select className="select">
+            <select
+              name="Language"
+              className="select"
+              onChange={this.updateValue}
+            >
               <option value="" selected="selected">
                 Select a Language
               </option>
@@ -94,7 +95,7 @@ class Register extends Component {
               <option value="Vietnamese">Vietnamese</option>
               <option value="Turkish">Turkish</option>
             </select>
-            <select name="state" className="select">
+            <select name="State" onChange={this.updateValue} className="select">
               <option value="" selected="selected">
                 Select a State
               </option>
@@ -171,9 +172,6 @@ class Register extends Component {
             <button className="updateButton">Submit</button>
           </div>
         </form>
-        <div className="div">
-          <button className="updateButton">Update Your Information</button>
-        </div>
       </div>
     )
   }
