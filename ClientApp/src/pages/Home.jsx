@@ -43,7 +43,7 @@ export default function Home() {
         >
           {sites.map(site => (
             <Marker
-              key={site.id}
+              key={site.locationName}
               latitude={site.latitude}
               longitude={site.longitude}
             >
@@ -68,11 +68,11 @@ export default function Home() {
             >
               <div>
                 <a href={`#${selectedSite.locationName}`}>
-                  <h3>
+                  <h4>
                     {selectedSite.firstName} {selectedSite.lastName}
-                  </h3>
+                  </h4>
                 </a>
-                <p>{selectedSite.description}</p>
+                <p>{selectedSite.locationName}</p>
               </div>
             </Popup>
           ) : null}
@@ -82,12 +82,12 @@ export default function Home() {
         {sites.map(site => {
           return (
             <li>
-              <a className="secondLink" id={site.id}>
+              <a className="secondLink" id={site.locationName}>
                 <h2>{site.locationName}</h2>
               </a>
-              <h2>
+              <h3>
                 {site.firstName} {site.lastName}
-              </h2>
+              </h3>
               <p>{site.language}</p>
               <p>{site.address}</p>
               <p>{site.description}</p>
