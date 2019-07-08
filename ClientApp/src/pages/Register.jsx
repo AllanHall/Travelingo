@@ -16,6 +16,7 @@ class Register extends Component {
 
   submitNewSite = event => {
     event.preventDefault()
+
     axios.post('/api/sites', this.state.site)
   }
 
