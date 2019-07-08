@@ -136,7 +136,7 @@ body::after {
 }
 
 .bm-burger-bars {
-  background: #373a47;
+  background: #3b3e4d;
 }
 
 .bm-burger-bars-hover {
@@ -260,7 +260,7 @@ input:checked + .slider::before {
 .map {
   display: block;
   margin: 0 auto;
-  border: 3px solid black;
+  border: 3px solid #3b3e4d;
   width: 60vw;
   height: 60vh;
 }
@@ -362,8 +362,7 @@ a:hover {
 
 .select {
   font-size: 18px;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin: 1rem;
   border: 0;
   border-radius: 9px 9px 9px 9px;
   box-shadow: 1px 1px 11px white;
@@ -529,6 +528,15 @@ a:hover {
   .title:before,
   .title:after {
     border-bottom: 0px;
+  }
+
+  .container {
+    height: 140vh;
+  }
+
+  .splashLogo {
+    width: 18rem;
+    height: 5.5rem;
   }
 }
 

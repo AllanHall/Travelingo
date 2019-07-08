@@ -14,24 +14,49 @@ namespace travelingo.Controllers
   [ApiController]
   public class SitesController : ControllerBase
   {
-    private DatabaseContext _context;
+    private readonly DatabaseContext _context;
 
     public SitesController(DatabaseContext context)
     {
-      this._context = context;
+      _context = context;
     }
 
     [HttpGet]
-    public async Task<List<Site>> GetAllSites()
+    public async Task<ActionResult<List<Site>>> GetAllSites()
     {
       return await _context.Sites.ToListAsync();
     }
 
     [HttpGet("language")]
-    public async Task<List<Site>> GetSitesByLanguage([FromQuery] string searchTerm)
+    public async Task<ActionResult<List<Site>>> GetSitesByLanguage([FromQuery] string language)
     {
-      var rv = _context.Sites.Where(w => w.Language.ToLower().Contains(searchTerm.ToLower()));
+      var rv = _context.Sites.Where(w => w.Language.ToLower().Contains(language.ToLower()));
       return await rv.ToListAsync();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<Site>> PostNewSite([FromBody]Site site)
+    {
+      _context.Sites.Add(site);
+      await _context.SaveChangesAsync();
+      return site;
+    }
+
+    [HttpPut("{id}")]
+
+    public async Task<ActionResult<Site>> UpdateSite(int id, [FromBody]Site updatedSite)
+    {
+      var oldSite = await _context.Sites.FirstOrDefaultAsync(f => f.id == id);
+      oldSite.LocationName = updatedSite.LocationName;
+      oldSite.Address = updatedSite.Address;
+      oldSite.State = updatedSite.State;
+      oldSite.WebsiteUrl = updatedSite.WebsiteUrl;
+      oldSite.Description = updatedSite.Description;
+      oldSite.Latitude = updatedSite.Latitude;
+      oldSite.Longitude = updatedSite.Longitude;
+      oldSite.Language = updatedSite.Language;
+      await _context.SaveChangesAsync();
+      return updatedSite;
     }
   }
 }
