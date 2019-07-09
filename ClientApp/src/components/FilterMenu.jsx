@@ -1,21 +1,37 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import Axios from 'axios'
 
 class FilterMenu extends React.Component {
-  // checkBox = e => {
-  //   if (e.target.checked === true) {
-  //     this.state.site2.language = e.target.value
-  //   } else {
-  //     this.state.site2.language = ''
-  //   }
-  //   console.log(this.state.site2.language)
-  //   console.log(e.target.checked)
-  //   Axios.get('/api/sites').then(resp => {
-  //     console.log({ resp })
-  //     setSites(resp.data)
-  //   })
-  // }
+  state = {
+    sites: []
+  }
+  checkBox = e => {
+    if (e.target.checked === true) {
+      // this.setState({
+      //   sites: {
+      //     language: e.target.value
+      //   }
+      // })
+      this.state.sites.language = e.target.value
+      Axios.get(`/api/sites/language?=${this.state.sites.language}`).then(
+        resp => {
+          console.log({ resp })
+          this.setState({
+            sites: [resp.data]
+          })
+        }
+      )
+    } else {
+      this.state.sites.language = ''
+      Axios.get('/api/sites').then(resp => {
+        console.log({ resp })
+        this.setState({
+          sites: [resp.data]
+        })
+      })
+    }
+  }
 
   render() {
     return (
@@ -28,7 +44,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="English"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -41,7 +63,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Spanish"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -56,7 +84,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="French"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -69,7 +103,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="German"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -84,7 +124,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Chinese"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -97,7 +143,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Hindi"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -112,7 +164,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Arabic"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -125,7 +183,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Portuguese"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -140,7 +204,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" class="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Bengali"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -153,7 +223,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" className="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Japanese"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -168,7 +244,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" className="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Russian"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -181,7 +263,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" className="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Lahnda"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -196,7 +284,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" className="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Korean"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -209,7 +303,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" className="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Indonesian"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -224,7 +324,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" className="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Turkish"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
@@ -237,7 +343,13 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input type="checkbox" className="form-check-input" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        value="Vietnamese"
+                        name="Language"
+                        onChange={this.checkBox}
+                      />
                       <span className="slider round" />
                     </label>
                   </div>
