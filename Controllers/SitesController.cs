@@ -58,5 +58,19 @@ namespace travelingo.Controllers
       await _context.SaveChangesAsync();
       return updatedSite;
     }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<Site>> DeleteSite(int id)
+    {
+      var oldSite = await _context.Sites.FindAsync(id);
+      if (oldSite == null)
+      {
+        return NotFound();
+      }
+
+      _context.Sites.Remove(oldSite);
+      await _context.SaveChangesAsync();
+      return oldSite;
+    }
   }
 }
