@@ -1,7 +1,7 @@
 import NavBar from '../components/NavBar'
 import FilterMenu from '../components/FilterMenu'
 import React, { useState, useEffect } from 'react'
-import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import ReactMapGL, { Marker, Popup, FlyToInterpolator } from 'react-map-gl'
 import pin from '../images/pin.png'
 import Axios from 'axios'
 
@@ -12,9 +12,9 @@ export default function Home() {
   const [selectedSite, setSelectedSite] = useState(null)
   const [sites, setSites] = useState([])
   const [viewport, setViewport] = useState({
-    latitude: 27.76,
+    latitude: 27.82,
     longitude: -82.67,
-    zoom: 10
+    zoom: 9.7
   })
 
   useEffect(() => {
@@ -52,6 +52,13 @@ export default function Home() {
                 onClick={e => {
                   e.preventDefault()
                   setSelectedSite(site)
+                  setViewport({
+                    latitude: site.latitude,
+                    longitude: site.longitude,
+                    zoom: 14,
+                    transitionDuration: 1300,
+                    transitionInterpolator: new FlyToInterpolator()
+                  })
                 }}
               >
                 <img src={pin} alt="map marker" />

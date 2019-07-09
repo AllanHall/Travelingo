@@ -45,6 +45,10 @@ class Register extends Component {
           }
         )
       })
+    this.setState({
+      site: {}
+    })
+    event.target.reset()
   }
 
   render() {
@@ -64,7 +68,7 @@ class Register extends Component {
           </div>
         </div>
         <div className="register">Register</div>
-        <form className="form" onSubmit={this.submitNewSite}>
+        <form className="form" name="form" onSubmit={this.submitNewSite}>
           <div className="register-div">
             <input
               className="inputField"

@@ -172,6 +172,7 @@ body::after {
   color: #b8b7ad;
   padding: 0.2em;
   font-size: 14px;
+  padding-top: 0;
 }
 
 .bm-item {
@@ -269,6 +270,7 @@ input:checked + .slider::before {
   background: none;
   border: none;
   cursor: pointer;
+  outline: none !important;
 }
 
 .markerBtn img {
@@ -289,8 +291,7 @@ input:checked + .slider::before {
 .list > li {
   border: 1px solid black;
   font-weight: bold;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 2rem;
 }
 
 a {
