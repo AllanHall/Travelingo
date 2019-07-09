@@ -282,8 +282,8 @@ input:checked + .slider::before {
   text-align: center;
   list-style: none;
   padding-inline-start: 0px;
-  margin-left: 20vw;
-  margin-right: 20vw;
+  margin-left: 22vw;
+  margin-right: 22vw;
   margin-top: 4rem;
   font-weight: bold;
 }
@@ -294,8 +294,8 @@ input:checked + .slider::before {
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  background-color: rgba(175, 240, 196, 0.78);
-  border-radius: 22px;
+  background-color: rgba(175, 240, 196, 0.68);
+  border-radius: 12px;
   box-shadow: 14px -6px 5px #6e7271;
 }
 
