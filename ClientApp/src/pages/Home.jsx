@@ -97,18 +97,19 @@ export default function Home() {
               <a className="secondLink" id={site.locationName}>
                 <h2>{site.locationName}</h2>
               </a>
+              <hr className="listBreak" />
               <h3>
                 {site.firstName} {site.lastName}
               </h3>
-              <p>{site.language}</p>
-              <p>{site.address}</p>
-              <p>{site.description}</p>
+              <h4>{site.language}</h4>
+              <h4>{site.address}</h4>
+              <p className="listDescription">{site.description}</p>
               <a
                 href={site.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <p>{site.websiteUrl}</p>
+                <h5>{site.websiteUrl}</h5>
               </a>
             </li>
           )

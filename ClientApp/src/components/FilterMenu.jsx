@@ -8,11 +8,6 @@ class FilterMenu extends React.Component {
   }
   checkBox = e => {
     if (e.target.checked === true) {
-      // this.setState({
-      //   sites: {
-      //     language: e.target.value
-      //   }
-      // })
       this.state.sites.language = e.target.value
       Axios.get(`/api/sites/language?=${this.state.sites.language}`).then(
         resp => {

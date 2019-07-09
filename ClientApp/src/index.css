@@ -285,16 +285,30 @@ input:checked + .slider::before {
   margin-left: 20vw;
   margin-right: 20vw;
   margin-top: 4rem;
+  font-weight: bold;
 }
 
 .list > li {
   border: 1px solid black;
-  font-weight: bold;
+  color: #2d3142;
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  background-color: hsl(0, 0%, 94%, 0.7);
-  border-radius: 5px;
+  background-color: rgba(175, 240, 196, 0.78);
+  border-radius: 22px;
+  box-shadow: 14px -6px 5px #6e7271;
+}
+
+.listBreak {
+  border: 1px solid #2d3142;
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+
+.listDescription {
+  font-size: 16px;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 a {
@@ -302,11 +316,11 @@ a {
 }
 
 a:link {
-  color: black;
+  color: #2d3142;
 }
 
 a:visited {
-  color: black;
+  color: #2d3142;
 }
 
 a:hover {
