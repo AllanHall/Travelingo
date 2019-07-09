@@ -17,18 +17,14 @@ class FilterMenu extends React.Component {
       Axios.get(`/api/sites/language?=${this.state.sites.language}`).then(
         resp => {
           console.log({ resp })
-          this.setState({
-            sites: [resp.data]
-          })
+          this.props.updateSites(resp.data)
         }
       )
     } else {
       this.state.sites.language = ''
       Axios.get('/api/sites').then(resp => {
         console.log({ resp })
-        this.setState({
-          sites: [resp.data]
-        })
+        this.props.updateSites(resp.data)
       })
     }
   }

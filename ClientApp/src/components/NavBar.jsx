@@ -15,7 +15,7 @@ class NavBar extends Component {
               <div>Register</div>
             </Link>
             <Link className="navLinks" to="/">
-              <div>Login</div>
+              <div>Splash Page</div>
             </Link>
           </div>
         </div>

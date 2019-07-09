@@ -60,7 +60,7 @@ class Register extends Component {
               <div>Home</div>
             </Link>
             <Link className="navLinks" to="/">
-              <div>Login</div>
+              <div>Splash Page</div>
             </Link>
           </div>
         </div>

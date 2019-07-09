@@ -294,6 +294,7 @@ input:checked + .slider::before {
   margin-top: 2rem;
   margin-bottom: 2rem;
   background-color: hsl(0, 0%, 94%, 0.7);
+  border-radius: 5px;
 }
 
 a {

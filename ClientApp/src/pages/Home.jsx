@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <NavBar />
       <div className="menuWrapper">
-        <FilterMenu />
+        <FilterMenu updateSites={setSites} />
       </div>
       <div className="map">
         <ReactMapGL
