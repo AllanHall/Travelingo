@@ -45,9 +45,6 @@ class Register extends Component {
           }
         )
       })
-    this.setState({
-      site: {}
-    })
     event.target.reset()
   }
 

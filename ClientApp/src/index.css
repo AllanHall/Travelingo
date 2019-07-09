@@ -285,13 +285,15 @@ input:checked + .slider::before {
   margin-left: 20vw;
   margin-right: 20vw;
   margin-top: 4rem;
-  background-color: hsl(0, 0%, 94%, 0.7);
 }
 
 .list > li {
   border: 1px solid black;
   font-weight: bold;
   padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: hsl(0, 0%, 94%, 0.7);
 }
 
 a {
@@ -584,5 +586,8 @@ a:hover {
 @media screen and (max-width: 350px) {
   .register-div {
     margin-left: 10vw;
+  }
+  .container {
+    height: 140vh;
   }
 }

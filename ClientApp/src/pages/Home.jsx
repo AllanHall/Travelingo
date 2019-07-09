@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, Popup, FlyToInterpolator } from 'react-map-gl'
 import pin from '../images/pin.png'
 import Axios from 'axios'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const TOKEN =
   'pk.eyJ1IjoiYWxsYW1hbGxhbiIsImEiOiJjang2YTJ5ZDkwYWl6NDNtaHF1bmpvbmVyIn0.5LxH6in5O4Et8agx-t57Rw'
@@ -83,6 +84,7 @@ export default function Home() {
                 <p>
                   {selectedSite.firstName} {selectedSite.lastName}
                 </p>
+                <p>{selectedSite.language}</p>
               </div>
             </Popup>
           ) : null}
