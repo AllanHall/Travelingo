@@ -3,9 +3,15 @@ import { Link } from 'react-router-dom'
 import Logo from '../images/Logo.png'
 import axios from 'axios'
 
+const TOKEN =
+  'pk.eyJ1IjoiYWxsYW1hbGxhbiIsImEiOiJjang2YTJ5ZDkwYWl6NDNtaHF1bmpvbmVyIn0.5LxH6in5O4Et8agx-t57Rw'
+
 class Register extends Component {
   state = {
-    site: {}
+    site: {
+      latitude: '',
+      longitude: ''
+    }
   }
 
   updateValue = event => {
@@ -16,8 +22,29 @@ class Register extends Component {
 
   submitNewSite = event => {
     event.preventDefault()
-
-    axios.post('/api/sites', this.state.site)
+    const add = encodeURIComponent(this.state.site.Address)
+    const cit = encodeURIComponent(this.state.site.City)
+    const st = encodeURIComponent(this.state.site.State)
+    axios
+      .get(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${add}%20${cit}%20${st}.json?country=US&access_token=${TOKEN}`
+      )
+      .then(resp => {
+        console.log(resp.data.features[0].center[1])
+        console.log(resp.data.features[0].center[0])
+        this.setState(
+          {
+            site: {
+              ...this.state.site,
+              latitude: resp.data.features[0].center[1],
+              longitude: resp.data.features[0].center[0]
+            }
+          },
+          () => {
+            axios.post('/api/sites', this.state.site)
+          }
+        )
+      })
   }
 
   render() {
@@ -58,7 +85,7 @@ class Register extends Component {
             <input
               className="inputField"
               type="text"
-              placeholder="location"
+              placeholder="location name"
               name="LocationName"
               onChange={this.updateValue}
             />
@@ -67,6 +94,15 @@ class Register extends Component {
               type="text"
               placeholder="address"
               name="Address"
+              onChange={this.updateValue}
+            />
+          </div>
+          <div>
+            <input
+              className="inputField fix"
+              type="text"
+              placeholder="city"
+              name="City"
               onChange={this.updateValue}
             />
           </div>

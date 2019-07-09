@@ -67,7 +67,10 @@ export default function Home() {
               }}
             >
               <div>
-                <a href={`/home#${selectedSite.locationName}`}>
+                <a
+                  href={`/home#${selectedSite.locationName}`}
+                  className="secondLink"
+                >
                   <h4>{selectedSite.locationName}</h4>
                 </a>
                 <p>

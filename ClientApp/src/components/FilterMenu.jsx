@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
 import { slide as Menu } from 'react-burger-menu'
+import Axios from 'axios'
 
 class FilterMenu extends React.Component {
-  state = {
-    filteredLanguage: []
-  }
-
-  // handleCheckboxChange = (filter, event) => {
-  //   let filteredLanguage = this.state.filteredLanguage
-  //   filteredLanguage[filter.Language] = event.target.value
-  //   this.setState({ value: event.target.value })
+  // checkBox = e => {
+  //   if (e.target.checked === true) {
+  //     this.state.site2.language = e.target.value
+  //   } else {
+  //     this.state.site2.language = ''
+  //   }
+  //   console.log(this.state.site2.language)
+  //   console.log(e.target.checked)
+  //   Axios.get('/api/sites').then(resp => {
+  //     console.log({ resp })
+  //     setSites(resp.data)
+  //   })
   // }
 
   render() {
@@ -23,13 +28,7 @@ class FilterMenu extends React.Component {
                 <form>
                   <div className="switch-container position-relative form-group">
                     <label className="switch">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        // onChange={event =>
-                        //   this.handleCheckboxChange(filter, event)
-                        // }
-                      />
+                      <input type="checkbox" class="form-check-input" />
                       <span className="slider round" />
                     </label>
                   </div>
