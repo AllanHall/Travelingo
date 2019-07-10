@@ -11,15 +11,8 @@ class Register extends Component {
     site: {
       latitude: '',
       longitude: '',
-      display: '',
-      overlayDisplay: 'none'
+      display: 'none'
     }
-  }
-
-  componentDidMount() {
-    this.setState({
-      overlayDisplay: 'none'
-    })
   }
 
   updateValue = event => {
@@ -55,16 +48,10 @@ class Register extends Component {
       })
     event.target.reset()
     this.setState({
-      display: 'Your location was successfully added!',
-      overlayDisplay: 'block'
+      display: 'block'
     })
   }
 
-  closeOverlay = () => {
-    this.setState({
-      overlayDisplay: 'none'
-    })
-  }
   render() {
     return (
       <div>
@@ -227,20 +214,10 @@ class Register extends Component {
             <button className="updateButton">Submit</button>
           </div>
         </form>
-        <div
-          className="overlay"
-          style={{
-            display: `${this.state.overlayDisplay}`
-          }}
-        >
-          <div className="overlayDisplay">
-            <div className="returnDisplay">{this.state.display}</div>
-            <button
-              className="close updateButton"
-              onClick={() => this.closeOverlay()}
-            >
-              New Game?
-            </button>
+        <div className="modal" style={{ display: `${this.state.display}` }}>
+          <div className="modal-content">
+            <h2>Your site was successfully added!</h2>
+            <button>Home</button>
           </div>
         </div>
       </div>
