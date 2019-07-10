@@ -410,6 +410,31 @@ a:hover {
 
 /* Modal */
 
+.modal {
+  display: none;
+  z-index: 1;
+  margin-left: 30vw;
+  margin-top: 33vh;
+  width: 45vw;
+  height: 25vh;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.modal-padding {
+  margin-top: 4rem;
+  margin-left: 2rem;
+}
+
+.modal-button {
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+
+.modal-content {
+  border: none;
+}
+
 /* Form Buttons */
 
 .div {

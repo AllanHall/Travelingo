@@ -10,8 +10,8 @@ class Register extends Component {
   state = {
     site: {
       latitude: '',
-      longitude: ''
-      // display: 'none'
+      longitude: '',
+      display: 'none'
     }
   }
 
@@ -47,9 +47,9 @@ class Register extends Component {
         )
       })
     event.target.reset()
-    // this.setState({
-    //   display: 'block'
-    // })
+    this.setState({
+      display: 'block'
+    })
   }
 
   render() {
@@ -214,12 +214,12 @@ class Register extends Component {
             <button className="updateButton">Submit</button>
           </div>
         </form>
-        {/* <div className="modal" style={{ display: `${this.state.display}` }}>
+        <div className="modal" style={{ display: `${this.state.display}` }}>
           <div className="modal-content">
-            <h2>Your site was successfully added!</h2>
-            <button>Home</button>
+            <h2 className="modal-padding">Your site was successfully added!</h2>
+            <button className="updateButton modal-button">Home</button>
           </div>
-        </div> */}
+        </div>
       </div>
     )
   }
