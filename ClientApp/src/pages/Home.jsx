@@ -12,6 +12,7 @@ const TOKEN =
 export default function Home() {
   const [selectedSite, setSelectedSite] = useState(null)
   const [sites, setSites] = useState([])
+  const [filteredSites, setFilteredSites] = useState([])
   const [viewport, setViewport] = useState({
     latitude: 27.82,
     longitude: -82.67,
@@ -22,6 +23,7 @@ export default function Home() {
     Axios.get('/api/sites').then(resp => {
       console.log({ resp })
       setSites(resp.data)
+      setFilteredSites(resp.data)
     })
   }, '')
 
@@ -29,7 +31,7 @@ export default function Home() {
     <>
       <NavBar />
       <div className="menuWrapper">
-        <FilterMenu updateSites={setSites} />
+        <FilterMenu updateSites={setFilteredSites} sites={sites} />
       </div>
       <div className="map">
         <ReactMapGL
@@ -42,7 +44,7 @@ export default function Home() {
             setViewport(viewport)
           }}
         >
-          {sites.map(site => (
+          {filteredSites.map(site => (
             <Marker
               key={site.id}
               latitude={site.latitude}
@@ -91,7 +93,7 @@ export default function Home() {
         </ReactMapGL>
       </div>
       <ul className="list">
-        {sites.map(site => {
+        {filteredSites.map(site => {
           return (
             <li>
               <a className="secondLink" id={site.locationName}>

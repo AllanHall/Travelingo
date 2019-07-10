@@ -408,6 +408,49 @@ a:hover {
   margin: 1rem;
 }
 
+/* Return Message */
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow-x: hidden;
+}
+
+.close {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  font-size: 28px;
+  border-radius: 8px;
+  float: none;
+  background-color: #f3f3f2;
+  color: black;
+}
+
+.returnDisplay {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 32px;
+  padding-top: 2rem;
+  margin-top: 8rem;
+}
+
+.overlayDisplay {
+  background-color: #f3f3f2;
+  width: 34vw;
+  height: 40vh;
+  display: block;
+  margin: 0 auto;
+  border-radius: 2px;
+  z-index: 2;
+}
+
 /* Form Buttons */
 
 .div {

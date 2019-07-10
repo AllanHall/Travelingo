@@ -1,26 +1,39 @@
 import React from 'react'
 import { slide as Menu } from 'react-burger-menu'
-import Axios from 'axios'
 
 class FilterMenu extends React.Component {
   state = {
-    sites: []
+    currentFilters: []
   }
   checkBox = e => {
     if (e.target.checked === true) {
-      this.state.sites.language = e.target.value
-      Axios.get(`/api/sites/language?=${this.state.sites.language}`).then(
-        resp => {
-          console.log({ resp })
-          this.props.updateSites(resp.data)
+      this.setState(
+        {
+          currentFilters: this.state.currentFilters.concat(e.target.value)
+        },
+        () => {
+          this.props.updateSites(
+            this.props.sites.filter(f =>
+              this.state.currentFilters.includes(f.language)
+            )
+          )
         }
       )
     } else {
-      this.state.sites.language = ''
-      Axios.get('/api/sites').then(resp => {
-        console.log({ resp })
-        this.props.updateSites(resp.data)
-      })
+      this.setState(
+        {
+          currentFilters: this.state.currentFilters.filter(
+            f => f !== e.target.value
+          )
+        },
+        () => {
+          this.props.updateSites(
+            this.props.sites.filter(f =>
+              this.state.currentFilters.includes(f.language)
+            )
+          )
+        }
+      )
     }
   }
 

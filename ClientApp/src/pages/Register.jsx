@@ -10,8 +10,16 @@ class Register extends Component {
   state = {
     site: {
       latitude: '',
-      longitude: ''
+      longitude: '',
+      display: '',
+      overlayDisplay: 'none'
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      overlayDisplay: 'none'
+    })
   }
 
   updateValue = event => {
@@ -46,8 +54,17 @@ class Register extends Component {
         )
       })
     event.target.reset()
+    this.setState({
+      display: 'Your location was successfully added!',
+      overlayDisplay: 'block'
+    })
   }
 
+  closeOverlay = () => {
+    this.setState({
+      overlayDisplay: 'none'
+    })
+  }
   render() {
     return (
       <div>
@@ -210,6 +227,22 @@ class Register extends Component {
             <button className="updateButton">Submit</button>
           </div>
         </form>
+        <div
+          className="overlay"
+          style={{
+            display: `${this.state.overlayDisplay}`
+          }}
+        >
+          <div className="overlayDisplay">
+            <div className="returnDisplay">{this.state.display}</div>
+            <button
+              className="close updateButton"
+              onClick={() => this.closeOverlay()}
+            >
+              New Game?
+            </button>
+          </div>
+        </div>
       </div>
     )
   }
