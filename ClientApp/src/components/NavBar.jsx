@@ -11,11 +11,11 @@ class NavBar extends Component {
             <img className="logo" src={Logo} alt="travelingo logo" />
           </header>
           <div className="nav">
-            <Link className="navLinks" to="/Register">
+            <Link className="navLinks" to="/Login">
               <div>Register</div>
             </Link>
             <Link className="navLinks" to="/">
-              <div>Splash Page</div>
+              <div>Mission</div>
             </Link>
           </div>
         </div>

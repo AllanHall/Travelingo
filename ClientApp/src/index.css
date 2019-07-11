@@ -336,6 +336,31 @@ a:hover {
   text-decoration: none;
 }
 
+/* Login Page */
+
+.loginContainer {
+  background-color: white;
+  height: 65vh;
+  width: 60vw;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-top: 6vh;
+}
+
+.innerContainer1 {
+  padding-top: 7vh;
+  padding-left: 10vw;
+}
+
+.innerContainer2 {
+  padding-left: 10vw;
+}
+
+.hr {
+  margin-top: 3vh;
+}
+
 /* Registration Page */
 
 .register {
@@ -460,7 +485,7 @@ a:hover {
   padding: 0 0.8em;
   cursor: pointer;
   transition: 800ms ease all;
-  outline: none;
+  outline: none !important;
 }
 .updateButton:hover {
   background: #fff;

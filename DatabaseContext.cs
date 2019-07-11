@@ -46,5 +46,6 @@ namespace travelingo
     }
 
     public DbSet<Site> Sites { get; set; }
+    public DbSet<User> Users { get; set; }
   }
 }

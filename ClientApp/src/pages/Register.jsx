@@ -42,14 +42,15 @@ class Register extends Component {
             }
           },
           () => {
-            axios.post('/api/sites', this.state.site)
+            axios.post('/api/sites', this.state.site).then(resp => {
+              this.setState({
+                display: 'block'
+              })
+            })
           }
         )
       })
     event.target.reset()
-    this.setState({
-      display: 'block'
-    })
   }
 
   render() {
@@ -64,11 +65,11 @@ class Register extends Component {
               <div>Home</div>
             </Link>
             <Link className="navLinks" to="/">
-              <div>Splash Page</div>
+              <div>Mission</div>
             </Link>
           </div>
         </div>
-        <div className="register">Register</div>
+        <div className="register">Register Your Location</div>
         <form className="form" name="form" onSubmit={this.submitNewSite}>
           <div className="register-div">
             <input
