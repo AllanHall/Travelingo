@@ -217,7 +217,9 @@ class Register extends Component {
         <div className="modal" style={{ display: `${this.state.display}` }}>
           <div className="modal-content">
             <h2 className="modal-padding">Your site was successfully added!</h2>
-            <button className="updateButton modal-button">Home</button>
+            <Link to="/home">
+              <button className="updateButton modal-button">Home</button>
+            </Link>
           </div>
         </div>
       </div>

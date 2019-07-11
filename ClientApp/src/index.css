@@ -413,7 +413,7 @@ a:hover {
 .modal {
   display: none;
   z-index: 1;
-  margin-left: 30vw;
+  margin-left: 27vw;
   margin-top: 33vh;
   width: 45vw;
   height: 25vh;
@@ -422,13 +422,14 @@ a:hover {
 }
 
 .modal-padding {
-  margin-top: 4rem;
-  margin-left: 2rem;
+  text-align: center;
+  margin-top: 4vh;
 }
 
 .modal-button {
-  margin-left: 15rem;
-  margin-right: 15rem;
+  display: block;
+  margin: 0 auto;
+  margin-top: 4vh;
 }
 
 .modal-content {
@@ -578,6 +579,9 @@ a:hover {
   .content-container {
     width: 20vw;
   }
+  .modal {
+    height: 40vh;
+  }
 }
 
 @media screen and (max-width: 610px) {
@@ -608,6 +612,9 @@ a:hover {
   .container {
     height: 112vh;
   }
+  .urls {
+    word-wrap: break-word;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -622,6 +629,9 @@ a:hover {
 @media screen and (max-width: 410px) {
   .container {
     height: 125vh;
+  }
+  .modal {
+    width: 55vw;
   }
 }
 

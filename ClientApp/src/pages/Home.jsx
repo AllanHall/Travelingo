@@ -104,14 +104,16 @@ export default function Home() {
                 {site.firstName} {site.lastName}
               </h3>
               <h4>{site.language}</h4>
-              <h4>{site.address}</h4>
+              <h4>
+                {site.address}, {site.city} {site.state}
+              </h4>
               <p className="listDescription">{site.description}</p>
               <a
                 href={site.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <h5>{site.websiteUrl}</h5>
+                <h5 className="urls">{site.websiteUrl}</h5>
               </a>
             </li>
           )
