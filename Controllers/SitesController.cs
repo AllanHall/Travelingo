@@ -7,6 +7,7 @@ using travelingo.models;
 using travelingo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace travelingo.Controllers
 {
@@ -35,6 +36,7 @@ namespace travelingo.Controllers
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<Site>> PostNewSite(Site site)
     {
       _context.Sites.Add(site);

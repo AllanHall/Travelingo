@@ -375,7 +375,7 @@ a:hover {
 /* Login Page */
 
 .loginContainer {
-  background-color: white;
+  background-color: whitesmoke;
   height: 67vh;
   width: 60vw;
   display: block;
@@ -396,6 +396,18 @@ a:hover {
 
 .hr {
   margin-top: 5vh;
+}
+
+.login-input {
+  border-radius: 25px;
+  text-align: center;
+  outline: none;
+}
+
+.signup-input {
+  border-radius: 25px;
+  text-align: center;
+  outline: none;
 }
 
 /* Registration Page */
@@ -701,6 +713,10 @@ a:hover {
   }
   .modal {
     width: 55vw;
+  }
+  .loginContainer {
+    height: 100vh;
+    width: 80vw;
   }
 }
 

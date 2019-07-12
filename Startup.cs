@@ -12,6 +12,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using travelingo.services;
 
 namespace travelingo
 {
@@ -36,6 +37,8 @@ namespace travelingo
       });
 
       services.AddDbContext<DatabaseContext>();
+      services.AddTransient<IAuthService, AuthService>();
+
       services.AddHealthChecks();
       // Register the Swagger generator, defining 1 or more Swagger documents
       services.AddSwaggerGen(c =>

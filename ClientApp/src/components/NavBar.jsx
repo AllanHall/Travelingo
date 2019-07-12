@@ -12,7 +12,7 @@ class NavBar extends Component {
           </header>
           <div className="nav">
             <Link className="navLinks" to="/Login">
-              <div>Register</div>
+              <div>Login/Register</div>
             </Link>
             <Link className="navLinks" to="/">
               <div>Mission</div>
