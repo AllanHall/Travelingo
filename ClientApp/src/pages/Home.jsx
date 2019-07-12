@@ -85,23 +85,21 @@ export default function Home() {
           ))}
           {selectedSite ? (
             <Popup
+              className="popUp"
               latitude={selectedSite.latitude}
               longitude={selectedSite.longitude}
               onClose={() => {
                 setSelectedSite(null)
               }}
             >
-              <div>
+              <div className="pop">
                 <a
                   href={`/home#${selectedSite.locationName}`}
                   className="secondLink"
                 >
-                  <h4>{selectedSite.locationName}</h4>
+                  <h4 className="popName">{selectedSite.locationName}</h4>
                 </a>
-                <p>
-                  {selectedSite.firstName} {selectedSite.lastName}
-                </p>
-                <p>{selectedSite.language}</p>
+                <h5 className="popLan">{selectedSite.language}</h5>
               </div>
             </Popup>
           ) : null}
@@ -115,7 +113,7 @@ export default function Home() {
           return (
             <li>
               <a className="secondLink" id={site.locationName}>
-                <h2>{site.locationName}</h2>
+                <h2 className="listHeader">{site.locationName}</h2>
               </a>
               <hr className="listBreak" />
               <h3>

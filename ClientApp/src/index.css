@@ -278,6 +278,29 @@ input:checked + .slider::before {
   height: 24px;
 }
 
+.mapboxgl-popup-content {
+  background-color: aliceblue;
+}
+
+.mapboxgl-popup-close-button {
+  background: none;
+  border: none;
+  outline: none !important;
+}
+
+.pop {
+  margin-top: 0.3em;
+}
+
+.popName {
+  text-shadow: -0.3px 0 black, 0 0.3px black, 0.3px 0 black, 0 0.3px black;
+}
+
+.popLan {
+  text-shadow: -0.1px 0 black, 0 0.1px black, 0.1px 0 black, 0 0.1px black;
+  text-align: center;
+}
+
 .list {
   text-align: center;
   list-style: none;
@@ -309,6 +332,13 @@ input:checked + .slider::before {
   font-size: 16px;
   margin-left: 2rem;
   margin-right: 2rem;
+}
+
+.listHeader {
+  color: black;
+  font-weight: none;
+  font-size: 38px;
+  text-shadow: -0.3px 0 black, 0 0.3px black, 0.3px 0 black, 0 0.3px black;
 }
 
 a {
@@ -346,7 +376,7 @@ a:hover {
 
 .loginContainer {
   background-color: white;
-  height: 65vh;
+  height: 67vh;
   width: 60vw;
   display: block;
   margin: 0 auto;

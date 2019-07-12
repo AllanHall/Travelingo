@@ -59,7 +59,7 @@ export default function Login() {
           <h1 className="loginTitle">Login</h1>
           <form onSubmit={Login}>
             <div className="login-div">
-              <label for="Input Email">Email Address</label>
+              <label>Email Address</label>
               <input
                 type="email"
                 name="email"
@@ -70,7 +70,7 @@ export default function Login() {
               />
             </div>
             <div className="login-div">
-              <label for="Input Password">Password</label>
+              <label>Password</label>
               <input
                 type="password"
                 name="password"
@@ -87,10 +87,10 @@ export default function Login() {
           <h2 className="signupTitle">Not a member? Sign up here!</h2>
           <form onSubmit={submitNewUser}>
             <div className="signup-div">
-              <label for="Full Name">Full Name</label>
+              <label>Full Name</label>
               <input
                 type="text"
-                name="name"
+                name="fullName"
                 className="signup-input"
                 aria-describedby="full name"
                 onChange={e => setFullName(e.target.value)}
@@ -98,7 +98,7 @@ export default function Login() {
               />
             </div>
             <div className="signup-div">
-              <label for="Input Email">Email Address</label>
+              <label>Email Address</label>
               <input
                 type="email"
                 name="email"
@@ -109,7 +109,7 @@ export default function Login() {
               />
             </div>
             <div className="signup-div">
-              <label for="Input Password">Password</label>
+              <label>Password</label>
               <input
                 type="password"
                 name="password"
