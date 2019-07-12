@@ -336,6 +336,12 @@ a:hover {
   text-decoration: none;
 }
 
+.resetButton {
+  display: block;
+  margin: 0 auto;
+  margin-top: 4.5vh;
+}
+
 /* Login Page */
 
 .loginContainer {
@@ -349,16 +355,17 @@ a:hover {
 }
 
 .innerContainer1 {
-  padding-top: 7vh;
+  padding-top: 5vh;
   padding-left: 10vw;
 }
 
 .innerContainer2 {
   padding-left: 10vw;
+  padding-top: 2vh;
 }
 
 .hr {
-  margin-top: 3vh;
+  margin-top: 5vh;
 }
 
 /* Registration Page */
@@ -612,6 +619,13 @@ a:hover {
 @media screen and (max-width: 610px) {
   .container {
     height: 100vh;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .loginContainer {
+    height: 86vh;
+    width: 70vw;
   }
 }
 

@@ -56,6 +56,7 @@ namespace travelingo.Controllers
       {
         UserName = registerInfo.Email,
         Email = registerInfo.Email,
+        FullName = registerInfo.Email,
       };
 
       var hashed = this._auth.HashPassWord(user, registerInfo.Password);

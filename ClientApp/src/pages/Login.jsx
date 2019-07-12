@@ -6,6 +6,7 @@ import Logo from '../images/Logo.png'
 export default function Login() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
+  const [fullName, setFullName] = useState('')
 
   const Login = e => {
     e.preventDefault()
@@ -25,9 +26,10 @@ export default function Login() {
   const submitNewUser = e => {
     e.preventDefault()
     axios
-      .post('/auth/login', {
+      .post('/auth/register', {
         password,
-        email: userName
+        email: userName,
+        fullName
       })
       .then(resp => {
         localStorage.setItem('token', resp.data.token)
@@ -84,6 +86,17 @@ export default function Login() {
         <div className="innerContainer2">
           <h2 className="signupTitle">Not a member? Sign up here!</h2>
           <form onSubmit={submitNewUser}>
+            <div className="signup-div">
+              <label for="Full Name">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                className="signup-input"
+                aria-describedby="full name"
+                onChange={e => setFullName(e.target.value)}
+                placeholder="Enter Your Name"
+              />
+            </div>
             <div className="signup-div">
               <label for="Input Email">Email Address</label>
               <input

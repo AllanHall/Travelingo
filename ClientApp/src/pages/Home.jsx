@@ -27,6 +27,21 @@ export default function Home() {
     })
   }, '')
 
+  const resetFilters = e => {
+    Axios.get('/api/sites').then(resp => {
+      setSites(resp.data)
+      setFilteredSites(resp.data)
+    })
+    setSelectedSite(null)
+    setViewport({
+      latitude: 27.82,
+      longitude: -82.67,
+      zoom: 9.7,
+      transitionDuration: 1100,
+      transitionInterpolator: new FlyToInterpolator()
+    })
+  }
+
   return (
     <>
       <NavBar />
@@ -92,6 +107,9 @@ export default function Home() {
           ) : null}
         </ReactMapGL>
       </div>
+      <button className="updateButton resetButton" onClick={resetFilters}>
+        Reset Filters
+      </button>
       <ul className="list">
         {filteredSites.map(site => {
           return (

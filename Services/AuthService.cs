@@ -42,9 +42,9 @@ namespace travelingo.services
       };
     }
 
-    public string HashPassWord(User elephant, string passwordToHash)
+    public string HashPassWord(User user, string passwordToHash)
     {
-      return new PasswordHasher<User>().HashPassword(elephant, passwordToHash);
+      return new PasswordHasher<User>().HashPassword(user, passwordToHash);
     }
 
     public bool VerifyPassword(User user, string providedPassword)

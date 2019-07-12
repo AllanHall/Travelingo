@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace travelingo
 {
@@ -45,6 +48,22 @@ namespace travelingo
       {
         configuration.RootPath = "ClientApp/build";
       });
+
+      // Authentication
+      services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+      {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+          ValidateIssuer = false,
+          ValidateAudience = false,
+          ValidateLifetime = true,
+          ValidateIssuerSigningKey = true,
+
+          IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes("supercalafragalisticexpialadociousandsons")
+          )
+        };
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,6 +89,7 @@ namespace travelingo
       {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
       });
+      app.UseAuthentication();
       app.UseStaticFiles();
       app.UseSpaStaticFiles();
       app.UseMvc(routes =>
