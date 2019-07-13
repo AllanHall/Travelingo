@@ -21,6 +21,10 @@ class Register extends Component {
     this.setState(state)
   }
 
+  goHome = () => {
+    window.location.href = '/home'
+  }
+
   submitNewSite = event => {
     event.preventDefault()
     const add = encodeURIComponent(this.state.site.Address)
@@ -42,11 +46,17 @@ class Register extends Component {
             }
           },
           () => {
-            axios.post('/api/sites', this.state.site).then(resp => {
-              this.setState({
-                display: 'block'
+            axios
+              .post('/api/sites', this.state.site, {
+                headers: {
+                  Authorization: 'Bearer ' + localStorage.getItem('token')
+                }
               })
-            })
+              .then(resp => {
+                this.setState({
+                  display: 'block'
+                })
+              })
           }
         )
       })
@@ -218,9 +228,9 @@ class Register extends Component {
         <div className="modal" style={{ display: `${this.state.display}` }}>
           <div className="modal-content">
             <h2 className="modal-padding">Your site was successfully added!</h2>
-            <Link to="/home">
-              <button className="updateButton modal-button">Home</button>
-            </Link>
+            <button className="updateButton modal-button" onClick={this.goHome}>
+              Home
+            </button>
           </div>
         </div>
       </div>
