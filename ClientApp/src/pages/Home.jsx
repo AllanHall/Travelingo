@@ -90,7 +90,7 @@ export default function Home() {
               <div className="pop">
                 <a
                   href={`/home#${selectedSite.locationName}`}
-                  className="secondLink"
+                  className="firstLink"
                 >
                   <h4 className="popName">{selectedSite.locationName}</h4>
                 </a>
@@ -104,9 +104,8 @@ export default function Home() {
         {filteredSites.map(site => {
           return (
             <li>
-              <a className="secondLink" id={site.locationName}>
-                <h2 className="listHeader">{site.locationName}</h2>
-              </a>
+              <a className="secondLink" id={site.locationName} />
+              <h2 className="listHeader">{site.locationName}</h2>
               <hr className="listBreak" />
               <h3>
                 {site.firstName} {site.lastName}

@@ -357,13 +357,20 @@ a:hover {
   color: #f87ead;
 }
 
-.secondLink {
+.firstLink {
   font-weight: bold;
 }
 
-.secondLink:hover {
+.firstLink:hover {
   color: #f87ead;
   text-decoration: none;
+}
+
+.secondLink {
+  display: block;
+  height: 27.8vh;
+  margin-top: -27.8vh;
+  visibility: hidden;
 }
 
 .resetButton {
