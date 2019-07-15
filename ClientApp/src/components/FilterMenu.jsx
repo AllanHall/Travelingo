@@ -27,11 +27,15 @@ class FilterMenu extends React.Component {
           )
         },
         () => {
-          this.props.updateSites(
-            this.props.sites.filter(f =>
-              this.state.currentFilters.includes(f.language)
+          if (this.state.currentFilters.length === 0) {
+            this.props.updateSites(this.props.sites)
+          } else {
+            this.props.updateSites(
+              this.props.sites.filter(f =>
+                this.state.currentFilters.includes(f.language)
+              )
             )
-          )
+          }
         }
       )
     }
