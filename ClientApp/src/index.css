@@ -410,6 +410,10 @@ a:hover {
   outline: none;
 }
 
+.message {
+  color: red;
+}
+
 /* Registration Page */
 
 .register {

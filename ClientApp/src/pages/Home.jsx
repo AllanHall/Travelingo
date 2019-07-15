@@ -115,9 +115,9 @@ export default function Home() {
           ) : null}
         </ReactMapGL>
       </div>
-      <button className="updateButton resetButton" onClick={resetFilters}>
+      {/* <button className="updateButton resetButton" onClick={resetFilters}>
         Reset Filters
-      </button>
+      </button> */}
       <ul className="list">
         {filteredSites.map(site => {
           return (

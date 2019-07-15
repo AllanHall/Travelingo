@@ -27,7 +27,7 @@ namespace travelingo.Controllers
       var user = await _context.Users.FirstOrDefaultAsync(f => f.UserName == loginInfo.Email);
       if (user == null)
       {
-        return Unauthorized();
+        return Unauthorized(new { message = "This user doesn't exist, sign up below!" });
       }
       else
       {

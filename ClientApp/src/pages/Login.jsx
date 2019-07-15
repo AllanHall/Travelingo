@@ -7,6 +7,8 @@ export default function Login() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [fullName, setFullName] = useState('')
+  const [message, setMessage] = useState('')
+  const [message2, setMessage2] = useState('')
 
   const Login = e => {
     e.preventDefault()
@@ -20,6 +22,9 @@ export default function Login() {
         localStorage.setItem('expires_at', resp.data.expiresAt)
         localStorage.setItem('current_user', JSON.stringify(resp.data.user))
         window.location.href = '/register'
+      })
+      .catch(error => {
+        setMessage2(error.response.data.message)
       })
   }
 
@@ -36,6 +41,9 @@ export default function Login() {
         localStorage.setItem('expires_at', resp.data.expiresAt)
         localStorage.setItem('current_user', JSON.stringify(resp.data.user))
         window.location.href = '/register'
+      })
+      .catch(error => {
+        setMessage(error.response.data.message)
       })
   }
 
@@ -68,6 +76,10 @@ export default function Login() {
                 onChange={e => setUserName(e.target.value)}
                 placeholder="Enter Email"
               />
+              <br />
+              <small className="message">
+                {message2 && <span className="message">{message2}</span>}
+              </small>
             </div>
             <div className="login-div">
               <label>Password</label>
@@ -107,6 +119,10 @@ export default function Login() {
                 onChange={e => setUserName(e.target.value)}
                 placeholder="Enter Email"
               />
+              <br />
+              <small className="message">
+                {message && <span className="message">{message}</span>}
+              </small>
             </div>
             <div className="signup-div">
               <label>Password</label>
