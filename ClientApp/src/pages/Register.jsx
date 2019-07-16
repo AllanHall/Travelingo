@@ -12,7 +12,9 @@ class Register extends Component {
       latitude: '',
       longitude: '',
       display: 'none'
-    }
+    },
+    message: '',
+    message2: ''
   }
 
   updateValue = event => {
@@ -25,42 +27,78 @@ class Register extends Component {
     window.location.href = '/home'
   }
 
+  isAddress = () => {
+    const regexAddress = new RegExp('/^d+s[A-z]+s[A-z]+/')
+    if (regexAddress.test(this.state.site.Address)) {
+      this.setState({
+        message: ''
+      })
+      return true
+    } else {
+      this.setState({
+        message: 'This is not a valid street address'
+      })
+      return false
+    }
+  }
+
+  isURL = () => {
+    const regexUrl = new RegExp(
+      '^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?'
+    )
+    if (regexUrl.test(this.state.site.WebsiteUrl)) {
+      this.setState({
+        message2: ''
+      })
+      return true
+    } else {
+      this.setState({
+        message2: 'This is not a valid URL, http or https Required'
+      })
+      return false
+    }
+  }
+
   submitNewSite = event => {
     event.preventDefault()
+    const isAddress = this.isAddress()
+    const isUrl = this.isURL()
     const add = encodeURIComponent(this.state.site.Address)
     const cit = encodeURIComponent(this.state.site.City)
     const st = encodeURIComponent(this.state.site.State)
-    axios
-      .get(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${add}%20${cit}%20${st}.json?country=US&access_token=${TOKEN}`
-      )
-      .then(resp => {
-        console.log(resp.data.features[0].center[1])
-        console.log(resp.data.features[0].center[0])
-        this.setState(
-          {
-            site: {
-              ...this.state.site,
-              latitude: resp.data.features[0].center[1],
-              longitude: resp.data.features[0].center[0]
-            }
-          },
-          () => {
-            axios
-              .post('/api/sites', this.state.site, {
-                headers: {
-                  Authorization: 'Bearer ' + localStorage.getItem('token')
-                }
-              })
-              .then(resp => {
-                this.setState({
-                  display: 'block'
-                })
-              })
-          }
+    if (isAddress && isUrl) {
+      axios
+        .get(
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${add}%20${cit}%20${st}.json?country=US&access_token=${TOKEN}`
         )
-      })
-    event.target.reset()
+        .then(resp => {
+          console.log(resp.data.features[0].center[1])
+          console.log(resp.data.features[0].center[0])
+          this.setState(
+            {
+              site: {
+                ...this.state.site,
+                latitude: resp.data.features[0].center[1],
+                longitude: resp.data.features[0].center[0]
+              }
+            },
+            () => {
+              axios
+                .post('/api/sites', this.state.site, {
+                  headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                  }
+                })
+                .then(resp => {
+                  this.setState({
+                    display: 'block'
+                  })
+                })
+            }
+          )
+        })
+      event.target.reset()
+    }
   }
 
   render() {
@@ -112,6 +150,12 @@ class Register extends Component {
               name="Address"
               onChange={this.updateValue}
             />
+            <br />
+            <small className="message marginLeft">
+              {this.state.message && (
+                <span className="message">{this.state.message}</span>
+              )}
+            </small>
           </div>
           <div>
             <input
@@ -214,6 +258,12 @@ class Register extends Component {
               onChange={this.updateValue}
             />
           </div>
+          <br />
+          <small className="message">
+            {this.state.message2 && (
+              <span className="message">{this.state.message2}</span>
+            )}
+          </small>
           <textarea
             className="textArea"
             type="text"

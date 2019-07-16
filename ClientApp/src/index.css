@@ -493,6 +493,10 @@ a:hover {
   margin: 1rem;
 }
 
+.marginLeft {
+  margin-left: 20vw;
+}
+
 /* Modal */
 
 .modal {
@@ -694,6 +698,12 @@ a:hover {
   .splashLogo {
     width: 18rem;
     height: 5.5rem;
+  }
+
+  .marginLeft {
+    margin-left: 0;
+    text-align: center;
+    margin-left: 5vw;
   }
 }
 
