@@ -39,6 +39,7 @@ namespace travelingo.Controllers
     [Authorize]
     public async Task<ActionResult<Site>> PostNewSite(Site site)
     {
+
       _context.Sites.Add(site);
       await _context.SaveChangesAsync();
       return site;

@@ -18,7 +18,7 @@ export default function Home() {
   const [viewport, setViewport] = useState({
     latitude: initialLat,
     longitude: initialLng,
-    zoom: 9.2
+    zoom: 9
   })
 
   useEffect(() => {
