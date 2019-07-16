@@ -10,15 +10,15 @@ const TOKEN =
   'pk.eyJ1IjoiYWxsYW1hbGxhbiIsImEiOiJjang2YTJ5ZDkwYWl6NDNtaHF1bmpvbmVyIn0.5LxH6in5O4Et8agx-t57Rw'
 
 export default function Home() {
-  const [initialLat, setInitialLat] = useState(27.82)
-  const [initialLng, setInitialLng] = useState(-82.67)
+  const [initialLat, setInitialLat] = useState(27.83)
+  const [initialLng, setInitialLng] = useState(-82.57)
   const [selectedSite, setSelectedSite] = useState(null)
   const [sites, setSites] = useState([])
   const [filteredSites, setFilteredSites] = useState([])
   const [viewport, setViewport] = useState({
     latitude: initialLat,
     longitude: initialLng,
-    zoom: 9
+    zoom: 9.2
   })
 
   useEffect(() => {
