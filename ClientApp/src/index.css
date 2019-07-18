@@ -749,3 +749,45 @@ a:hover {
     height: 140vh;
   }
 }
+
+@media screen and (min-width: 1600px) {
+  .container {
+    display: block;
+    margin: 0 auto;
+    margin-top: 7vh;
+    min-width: 82vw;
+  }
+  .description {
+    padding-top: 4vh;
+    padding-left: 14vw;
+    padding-right: 14vw;
+  }
+  .splashButton {
+    margin-top: 8vh;
+  }
+  .list > li {
+    height: 40vh;
+  }
+  .listDescription {
+    padding-top: 2.5vh;
+  }
+  .innerContainer1 {
+    margin-left: 10vw;
+  }
+  .innerContainer2 {
+    margin-left: 10vw;
+  }
+  .form {
+    margin-top: 4vh;
+  }
+  .textArea {
+    width: 22vw;
+    height: 12vh;
+  }
+  .inputField {
+    width: 14vw;
+  }
+  .inputFieldWeb {
+    width: 30vw;
+  }
+}
