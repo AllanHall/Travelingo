@@ -25,21 +25,20 @@ namespace travelingo.Controllers
     [HttpGet]
     public async Task<ActionResult<List<Site>>> GetAllSites()
     {
-      return await _context.Sites.ToListAsync();
+      return await _context.Sites.Include(i => i.User).ToListAsync();
     }
 
-    [HttpGet("language")]
-    public async Task<ActionResult<List<Site>>> GetSitesByLanguage([FromQuery] string language)
-    {
-      var rv = _context.Sites.Where(w => w.Language.ToLower().Contains(language.ToLower()));
-      return await rv.ToListAsync();
-    }
+    // [HttpGet("language")]
+    // public async Task<ActionResult<List<Site>>> GetSitesByLanguage([FromQuery] string language)
+    // {
+    //   var rv = _context.Sites.Where(w => w.Language.ToLower().Contains(language.ToLower()));
+    //   return await rv.ToListAsync();
+    // }
 
     [HttpPost]
     [Authorize]
     public async Task<ActionResult<Site>> PostNewSite(Site site)
     {
-
       _context.Sites.Add(site);
       await _context.SaveChangesAsync();
       return site;

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace travelingo.models
 {
@@ -10,5 +11,6 @@ namespace travelingo.models
     public string PasswordHash { get; set; }
     public string Email { get; set; }
     public DateTime DateJoined { get; set; } = DateTime.Now;
+    public List<Site> Sites { get; set; } = new List<Site>();
   }
 }
